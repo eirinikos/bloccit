@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+# desc 'does something'
+# task 'doit' do
+#   puts "Hello!"  
+# end

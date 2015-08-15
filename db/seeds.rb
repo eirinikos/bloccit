@@ -11,8 +11,7 @@ end
 
 posts = Post.all
 
-Post.where(title: "Trans Europe Express", body: "A Kraftwerk album.").first_or_create
-post_kraft = Post.where(title: "Trans Europe Express")
+post_kraft = Post.where(title: "Trans Europe Express", body: "A Kraftwerk album.").first_or_create
 
 # create comments
 

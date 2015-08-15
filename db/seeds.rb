@@ -11,7 +11,8 @@ end
 
 posts = Post.all
 
-post_lag = Post.create(title: "Lagunitas", body: "Lagunitas is a brewery in Petaluma, CA.")
+Post.where(title: "Trans Europe Express", body: "A Kraftwerk album.").first_or_create
+post_kraft = Post.where(title: "Trans Europe Express")
 
 # create comments
 
@@ -22,7 +23,7 @@ post_lag = Post.create(title: "Lagunitas", body: "Lagunitas is a brewery in Peta
     )
 end
 
-post_lag.comments.create(body: "It sure is.")
+post_kraft.comments.create(body: "That's right.")
 
 puts "Seed finished."
 puts "#{Post.count} posts created."

@@ -11,6 +11,8 @@ end
 
 posts = Post.all
 
+post_lag = Post.create(title: "Lagunitas", body: "Lagunitas is a brewery in Petaluma, CA.")
+
 # create comments
 
 100.times do
@@ -19,6 +21,8 @@ posts = Post.all
     body: Faker::Lorem.paragraph
     )
 end
+
+post_lag.comments.create(body: "It sure is.")
 
 puts "Seed finished."
 puts "#{Post.count} posts created."

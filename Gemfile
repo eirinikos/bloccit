@@ -18,6 +18,8 @@ end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'pry-rails'
+gem 'pry-nav'
+gem 'pry-stack_explorer'
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -55,6 +57,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'faker'
-  gem 'devise'
 end
+
+gem 'devise'
 

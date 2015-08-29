@@ -14,7 +14,13 @@
  *= require_self
  */
 
-/* body {background-color:red;}*/
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.user-info {
+  margin-top: 9px;
+}
+
+.nav {
+  margin-top: 5px;
+}

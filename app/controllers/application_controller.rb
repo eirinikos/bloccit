@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def flash_attack
-    flash[:notice] = "Flash!"
+    flash.now[:notice] = "Flash!"
   end
 end

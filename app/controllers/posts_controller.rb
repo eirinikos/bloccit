@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
+    @post = policy_scope(Post.find(params[:id]))
+    authorize @post
   end
 
   def new

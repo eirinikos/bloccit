@@ -4,7 +4,9 @@
   <div class="col-md-8">
     <p><%= @post.body %></p>
     <small>
+    <% unless @post.summary.nil? %>
       <p><%= @post.summary.body %></p>
+    <% end %>
     </small>
   </div>
 </div>

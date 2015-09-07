@@ -13,8 +13,8 @@ class SummariesController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @summary = Summary.new(params.require(:summary).permit(:body))
+    @summary.post = @post
     # @summary.user = current_user
-    # @summary.post = @post
     if @summary.save
       flash[:notice] = "Summary was saved."
       redirect_to [@topic, @post]

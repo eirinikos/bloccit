@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_registration_path
     else
       flash[:error] = "Invalid user information."
-      redirect_to edist_user_registration_path
+      redirect_to edit_user_registration_path
     end
   end
 

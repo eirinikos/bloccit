@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @topic = Post.find(params[:topic_id])
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)

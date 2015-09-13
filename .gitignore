@@ -19,4 +19,6 @@
 # Ignore application configuration, i.e., env. variables
 /config/application.yml
 /config/secrets.yml
+
+# CarrierWave image
 public/uploads

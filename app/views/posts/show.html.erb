@@ -19,7 +19,14 @@
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
+
   <div class="col-md-8">
-    <%= render "comments/_comment", locals: { topic: @topic, post: @post } %>
+    <%= render template: "comments/_form", locals: { topic: @topic, post: @post } %>
   </div>
+
+  <% unless @post.comments.nil? %>
+    <% @post.comments.each do |comment| %>
+      <%= render template: "comments/_comment", locals: { topic: @topic, post: @post } %>
+    <% end %>
+  <% end %>
 </div>

@@ -8,25 +8,20 @@
       <%= @post.user.name %>
     </small>
     <p>
-      <br>
-        <%= image_tag(@post.image.posts_show.url) if @post.image? %>
-      </br>
+      <%= image_tag(@post.image.posts_show.url) if @post.image? %>
       <%= markdown_to_html @post.body %>
     </p>
   </div>
-  <div class="col-md-4">
-    <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
-    <% end %>
-  </div>
 
   <div class="col-md-8">
-    <%= render template: "comments/_form", locals: { topic: @topic, post: @post } %>
+    <p>
+      <% if policy(@post).edit? %>
+        <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+      <% end %>
+    </p>
+    
+    <%= render partial: "comments/form", locals: { topic: @topic, post: @post } %>
   </div>
 
-  <% unless @post.comments.nil? %>
-    <% @post.comments.each do |comment| %>
-      <%= render template: "comments/_comment", locals: { topic: @topic, post: @post } %>
-    <% end %>
-  <% end %>
+  <%= render partial: "comments/comment", locals: { topic: @topic, post: @post }, collection: @post.comments %>
 </div>

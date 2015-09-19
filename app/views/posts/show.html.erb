@@ -18,10 +18,11 @@
       <% if policy(@post).edit? %>
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
       <% end %>
+      <% if policy(Comment.new).create? %>
+        <%= render partial: "comments/form", locals: { topic: @topic, post: @post } %>
+      <% end %>
     </p>
-    
-    <%= render partial: "comments/form", locals: { topic: @topic, post: @post } %>
   </div>
-
+  
   <%= render partial: "comments/comment", locals: { topic: @topic, post: @post }, collection: @post.comments %>
 </div>

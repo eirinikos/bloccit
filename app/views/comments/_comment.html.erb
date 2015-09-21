@@ -1,9 +1,14 @@
-<div class="col-md-8">
-  <br>
-    <%= comment.body %>
-  </br>
-  <small>
-    submitted <%= time_ago_in_words(@post.created_at) %> ago by
-    <%= @post.user.name %>
-  </small>
+<div class="media">
+  <div class="media-left">
+    <%= image_tag(comment.user.avatar.small.url, class: "media-object") if comment.user.avatar? %>
+  </div>
+  <div class="media-body">
+    <small>
+      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+      <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
+  </div>
 </div>

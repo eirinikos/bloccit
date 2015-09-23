@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Vote do
   
-  describe "validation" do
+  describe "validation methods" do
 
     before do
       @valid_vote = Vote.create(value: -1)

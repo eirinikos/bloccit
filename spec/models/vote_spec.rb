@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Vote do
+
+  include TestFactories
   
   describe "validation methods" do
 
@@ -8,10 +10,10 @@ describe Vote do
       # @valid_upvote = Vote.create(value: 1)
       # @valid_downvote = Vote.create(value: -1)
       # @invalid_vote = Vote.create(value: 3)
-      @post = Post.create(title: 'Post title', body: 'Post bodies must be pretty long.')
-      @valid_upvote  = Vote.create(value: 1, post: @post)
-      @valid_downvote  = Vote.create(value: -1, post: @post)
-      @invalid_vote  = Vote.create(value: 3, post: @post)
+      post = associated_post
+      @valid_upvote  = Vote.create(value: 1, post: post)
+      @valid_downvote  = Vote.create(value: -1, post: post)
+      @invalid_vote  = Vote.create(value: 3, post: post)
     end
 
     describe '#valid?' do
@@ -23,4 +25,12 @@ describe Vote do
     end
   end
 
+  describe 'after_save' do
+    it "calls `Post#update_rank` after save" do
+      post = associated_post
+      vote = Vote.new(value: 1, post: post)
+      expect(post).to receive(:update_rank)
+      vote.save
+    end
+  end
 end

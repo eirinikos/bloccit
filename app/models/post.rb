@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
 
   def save_with_initial_vote
     ActiveRecord::Base.transaction do
-      save
+      return false unless save
       create_vote
     end
   end

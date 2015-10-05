@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'figaro', '1.0'
 gem 'newrelic_rpm'
+gem 'puma'
 
 group :production do
   gem 'pg' # postgres

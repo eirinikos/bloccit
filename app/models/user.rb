@@ -11,6 +11,18 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def self.top_rated
+    self.select('users.*') # select all attrib of user
+    .select('COUNT(DISTINCT comments.id) AS comments_count') # count user's comments
+    .select('COUNT(DISTINCT posts.id) AS posts_count') # count user's posts
+    .select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank') # add the counts
+    .joins(:posts) # joins posts table to users table (via user_id)
+    .joins(:comments) # joins comments table to users table (via user_id)
+    .group('users.id') # instructs database to group results so that each user is returned in a distinct row
+    .order('rank DESC') # instructs database to order results in desc order, by the rank created in this query
+    # (rank = comment count + post count)
+  end
+
   def admin?
     role == 'admin'
   end

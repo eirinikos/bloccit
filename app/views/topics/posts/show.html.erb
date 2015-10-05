@@ -33,6 +33,6 @@
       </div>
     </p>
     <%= render partial: 'favorites/favorite', locals: { post: @post } %>
-    <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post }, collection: @post.comments %>
+    <%= render partial: 'comments/comment', collection: @comments %>
   </div>
 </div>

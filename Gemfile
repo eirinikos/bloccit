@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 gem 'figaro', '1.0'
 gem 'newrelic_rpm'
 gem 'puma'
+gem 'factory_girl_rails', '~> 4.0'
 
 group :production do
   gem 'pg' # postgres

@@ -11,7 +11,7 @@ describe "visiting profiles" do
     # this user is not signed in
     # test user is nil
     @post = associated_post(user: @user)
-    @comment = Comment.new(user: @user, body: "A Comment")
+    @comment = Comment.new(user: @user, body: "A Comment", post: @post)
     allow(@comment).to receive(:send_favorite_emails)
     @comment.save!
   end
@@ -19,7 +19,7 @@ describe "visiting profiles" do
   describe "- while signed in -" do
     
     before do
-      login_as(authenticated_user, scope: :user)
+      login_as(@user, scope: :user)
     end
 
     it "shows profile" do

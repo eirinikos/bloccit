@@ -6,5 +6,5 @@
 <% else %>
   // render an error on the form
   $('.new-comment').html("<%= escape_javascript(render partial: 
-    'comments/form', locals { post: @post, comment: @comment}) %>");
+    'comments/form', locals: { post: @post, comment: @comment}) %>");
 <% end %>

@@ -9,9 +9,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments
 
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(comments_param)
     @comment.user = current_user
     @comment.post = @post
+    @new_comment = Comment.new
 
     authorize @comment
 

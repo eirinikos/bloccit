@@ -1,7 +1,10 @@
 <% if @comment.valid? %>
   // add the comment to the list of comments
-  $().prepend()
+  $('.js-comments').prepend("<%= escape_javascript(render(@comment)) %>");
+  $('.new-comment').html("<%= escape_javascript(render partial:
+    'comments/form', locals: { post: @post, comment: @new_comment}) %>");
 <% else %>
   // render an error on the form
-  $().html()
+  $('.new-comment').html("<%= escape_javascript(render partial: 
+    'comments/form', locals { post: @post, comment: @comment}) %>");
 <% end %>

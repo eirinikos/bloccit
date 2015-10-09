@@ -1,0 +1,7 @@
+<% if @comment.valid? %>
+  // add the comment to the list of comments
+  $().prepend()
+<% else %>
+  // render an error on the form
+  $().html()
+<% end %>

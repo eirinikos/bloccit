@@ -28,11 +28,11 @@ describe User do
 
   it "stores a `posts_count` on user" do
     users = User.top_rated
-    expect( users.first.post_count ).to eq(1)
+    expect( users.first.posts_count ).to eq(1)
   end
 
   it "stores a `comments_count` on user" do
     users = User.top_rated
-    expect( users.first.comment_count ).to eq(2)
+    expect( users.first.comments_count ).to eq(2)
   end
 end

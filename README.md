@@ -1,3 +1,2 @@
-## Bloccit - a Reddit replica to teach the fundamentals of web dev and Rails.
-
-- the Heroku app name is: [kao-bloccit](https://kao-bloccit.herokuapp.com)
+### Bloccit
+A replica of Reddit - and a learning exercise on the fundamentals of web development and Rails.
